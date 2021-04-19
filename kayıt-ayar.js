@@ -3,6 +3,7 @@ const Database = require('plasma-db')
 const db = new Database('./kayıt.json')
 exports.run = async(client,message,args) => {
 let nicat = args[0]
+if(!message.member.hasPermissions("ADMINISTRATOR"))
 if(!nicat) return message.channel.send('Lütfen Bir Argüman Belirtiniz! `aç`,`kanal`,`kapat`,`yetkili-rol`')
 if(nicat !== "aç" && nicat !== "kanal" && nicat !== "kapat" && nicat !== "rol") return message.channel.send('Yanlış Argüman!')
 if(nicat == 'aç'){
